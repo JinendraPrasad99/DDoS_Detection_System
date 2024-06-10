@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta http-equiv="refresh" content="5">
+    
+<title>DDoS Detection System</title>
+<style>
+	table {
+            border-collapse: collapse;
+            width: 80%;
+            margin: auto;
+        }
+
+        th, td {
+            border: 1px solid #ddd;
+            padding: 8px;
+            text-align: left;
+        }
+
+        th {
+            background-color: #f2f2f2;
+        }
+
+        tr:hover {
+            background-color: #f5f5f5;
+        }
+        .h1_ddos{
+    text-align: center;
+    font-size: 40px;
+    font-weight: 500;
+}
+
+.h1_ddos_time{
+   color: red ;
+}
+
+.h1_ddos_ip{
+
+    text-align: center;
+    font-size: large;
+    margin-top: 100px;
+  
+}
+
+body {
+    background-color: rgb(20,20,75);
+    /* gradient */
+    background-image: linear-gradient(90deg, rgba(20,20,75,1) 0%, rgba(0,0,34,1) 46%, rgba(89,0,23,1) 99%);
+    /* specify the background size */
+    /* specify the background size */
+    background-size: cover;
+    /* ensure the gradient covers the entire background */
+    height: 100vh;
+    margin: 0;
+    /* optional: add text color to ensure readability */
+    color: white;
+    /* optional: add font-family for better readability */
+    font-family: Arial, sans-serif;
+}
+
+
+#sidebar {
+    position: fixed;
+    top: 0;
+    left: 0;
+    height: 100%;
+    width: 250px;
+    background-color: transparent;
+    color: white;
+    padding-top: 60px; /* Adjust for header height */
+}
+#sidebar ul {
+    list-style-type: none;
+    padding: 0;
+}
+#sidebar ul li {
+    padding: 10px;
+    text-align: center;
+    border-bottom: 1px solid #333;
+}
+#sidebar ul li:hover {
+    background-color:#333;
+    cursor: pointer;
+}
+#content {
+    margin-left: 250px;
+    padding: 20px;
+}
+#header, #footer {
+    background-color: #333;
+    color: white;
+    text-align: center;
+    padding: 20px;
+    position: fixed;
+    width: 100%;
+}
+#footer {
+    bottom: 0;
+}
+
+.sidebar1{
+    margin-bottom: 450px ;
+}
+
+</style>
+
+</head>
+<body>
+
+    <div id="sidebar">
+        <ul class="sidebar1">
+            <li>Overview</li>
+            <li>Analytics</li>
+            <li>CMDB</li>
+            <li>Setting</li>
+            <li>Admins</li>
+        </ul>
+
+        <ul>
+            <li>Help</li>
+            <li>Docs</li>
+           
+        </ul>
+
+    </div>
+
+   
+    
+
+ <div class="h1_ddos">
+    <h1> DDoS Detection System </h1>
+    {% if ddos_detected %}
+    <h3> DDoS Detected <span class="h1_ddos_time"> {{ detection_time }} </span> </h3>
+    {% else %}
+    <h3>No DDoS attack detected.</h3>
+    {% endif %}
+    <h4><a href="/suspicious_ips">View suspicious IPs</a></h4>
+    <h10>Packet Traffic Table:</h10><br>
+    {{ table | safe }}
+ </div>
+
+
+
+<div class="ddos_ip">
+
+    
+
+
+</div>
+    
+    
+</body>
+</html>

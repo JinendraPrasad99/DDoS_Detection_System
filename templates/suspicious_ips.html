@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Suspicious IPs</title>
+</head>
+
+<body>
+    <h1>Suspicious Source IPs</h1>
+    <ul>
+        {% for ip in suspected_ips %}
+            <li>{{ ip }}</li>
+        {% endfor %}
+    </ul>
+    <a href="/">Go back to main page</a>
+</body>
+
+</html>
